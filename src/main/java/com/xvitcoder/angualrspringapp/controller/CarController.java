@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 
@@ -23,15 +25,20 @@ public class CarController {
 
     @Autowired
     private CarService carService;
+    
+    private static final Logger logger = LoggerFactory.getLogger(CarController.class);
+
 
     @RequestMapping("/carlist.json")
     public @ResponseBody List<String> getCarList() {
+    	logger.info("/carlist.json");
         return carService.getAllCars();
     }
 
     @RequestMapping(value = "/addCar/{car}", method = RequestMethod.POST)
     public @ResponseBody void addCar(@PathVariable("car") String car) {
         carService.addCar(car);
+        
     }
 
     @RequestMapping(value = "/removeCar/{car}", method = RequestMethod.DELETE)

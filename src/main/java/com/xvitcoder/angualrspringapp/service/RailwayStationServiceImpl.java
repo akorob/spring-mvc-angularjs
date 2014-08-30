@@ -57,7 +57,7 @@ public class RailwayStationServiceImpl implements RailwayStationService {
         }
 	}
 	
-    @Override
+    
     public void deleteAll() {
         rsList.clear();
         id = 0L;
