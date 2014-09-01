@@ -1,0 +1,26 @@
+<h3>All Search Results</h3>
+<div class="alert alert-info" ng-show="!cashedResults">
+    No images found
+</div>
+<table class="table table-bordered table-striped" ng-show="cashedResults.length > 0">
+    <thead>
+        <tr>
+        	
+            <th style="text-align: center;">Start time</th>
+            <th style="text-align: center;">URL</th>
+            <th style="text-align: center;">Quantity</th>
+            <th style="text-align: center;">Total size, kBytes</th>
+            <th style="text-align: center;">Query time, ms</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr ng-repeat="siteImageInfo in cashedResults | orderBy:predicate">
+            <td style="text-align: center;">{{siteImageInfo.startTime|date:'dd.mm.yy HH:mm:ss'}}</td>
+            <td style="text-align: center;">{{siteImageInfo.url}}</td>
+            <td style="text-align: center;">{{siteImageInfo.quantity}}</td>
+            <td style="text-align: center;">{{siteImageInfo.totalSize}}</td>
+            <td style="text-align: center;">{{siteImageInfo.processingTime}}</td>
+        </tr>
+    </tbody>
+</table>
+<button class="btn btn-danger" ng-show="cashedResults.length > 1" ng-click="removeAllResults()">Remove All Results</button>

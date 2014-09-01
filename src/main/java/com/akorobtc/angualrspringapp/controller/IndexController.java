@@ -1,6 +1,5 @@
-package com.xvitcoder.angualrspringapp.controller;
+package com.akorobtc.angualrspringapp.controller;
 
-import com.xvitcoder.angualrspringapp.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
